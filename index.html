@@ -2,53 +2,141 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — Links</title>
-  <meta name="description" content="A quick intro + links." />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0b0f1a" />
+
+  <title>ssavn</title>
+  <meta name="description" content="debate • roblox • osu — links + contact" />
+
+  <!-- Favicon (upload favicon.png to repo root) -->
+  <link rel="icon" href="favicon.png" />
+
+  <!-- Open Graph / Discord preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="ssavn" />
+  <meta property="og:description" content="debate • roblox • osu — links + contact" />
+  <!-- IMPORTANT: replace YOURUSERNAME after you publish -->
+  <meta property="og:url" content="https://YOURUSERNAME.github.io/" />
+  <meta property="og:image" content="https://YOURUSERNAME.github.io/avatar.jpg" />
+  <meta property="og:image:alt" content="ssavn avatar" />
+
+  <!-- Optional: Twitter cards also use OG values, but this helps -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts (code-y vibe) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <main class="card">
-    <header class="top">
-      <!-- Upload an image named avatar.jpg (or change the src) -->
-      <img class="avatar" src="avatar.jpg" alt="Your profile photo" />
-      <div>
-        <h1>Your Name</h1>
-        <p class="tagline">Short bio. What you do. What you’re into.</p>
+  <div class="bg" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <section class="card">
+      <header class="head">
+        <div class="avatarWrap">
+          <img class="avatar" src="avatar.jpg" alt="Avatar" />
+          <span class="ring" aria-hidden="true"></span>
+        </div>
+
+        <div class="title">
+          <div class="nameRow">
+            <h1 class="name">ssavn</h1>
+            <span class="pill mono">he/him</span>
+            <span class="pill">CST</span>
+          </div>
+          <p class="tagline">debate • roblox • osu</p>
+        </div>
+      </header>
+
+      <div class="actions">
+        <button class="btn primary" id="copyDiscord" type="button">
+          <span class="btnGlow" aria-hidden="true"></span>
+          Copy Discord
+          <span class="btnHint mono">kiteh.</span>
+        </button>
+
+        <a class="btn" href="mailto:kiteh1853@gmail.com">
+          <span class="btnGlow" aria-hidden="true"></span>
+          Email
+          <span class="btnHint mono">less active</span>
+        </a>
+
+        <!-- Add more buttons if you want:
+        <a class="btn" href="https://..." target="_blank" rel="noreferrer">
+          <span class="btnGlow" aria-hidden="true"></span>
+          Roblox
+          <span class="btnHint mono">@handle</span>
+        </a>
+        -->
       </div>
-    </header>
 
-    <section class="buttons">
-      <a class="btn" href="https://discord.com/users/YOURID" target="_blank" rel="noreferrer">Discord</a>
-      <a class="btn" href="https://www.youtube.com/@yourhandle" target="_blank" rel="noreferrer">YouTube</a>
-      <a class="btn" href="https://twitch.tv/yourhandle" target="_blank" rel="noreferrer">Twitch</a>
-      <a class="btn" href="https://github.com/YOURUSERNAME" target="_blank" rel="noreferrer">GitHub</a>
+      <div class="grid">
+        <section class="panel">
+          <h2 class="panelTitle mono">about</h2>
+          <p class="panelText">
+            i like debating things and i spend a questionable amount of time on roblox + osu.
+            i keep this page low-info because it’s linked on my discord.
+          </p>
+        </section>
+
+        <section class="panel">
+          <h2 class="panelTitle mono">contact</h2>
+          <ul class="list">
+            <li><span class="k mono">discord</span><span class="v">kiteh.</span></li>
+            <li><span class="k mono">email</span><span class="v">kiteh1853@gmail.com</span></li>
+          </ul>
+          <p class="panelSub">
+            tip: use the <span class="mono">Copy Discord</span> button for fastest replies.
+          </p>
+        </section>
+      </div>
+
+      <footer class="foot">
+        <span class="mono dim">© <span id="y"></span> ssavn</span>
+        <span class="mono dim">built on github pages</span>
+      </footer>
     </section>
 
-    <section class="section">
-      <h2>About</h2>
-      <p>
-        Write 2–4 lines about yourself. What you’re building, streaming, learning, etc.
-      </p>
-    </section>
-
-    <section class="section">
-      <h2>Stuff I’m doing</h2>
-      <ul class="list">
-        <li><strong>Project/Server:</strong> what it is + why it’s cool</li>
-        <li><strong>Goal:</strong> what you’re aiming for</li>
-        <li><strong>Contact:</strong> best way to reach you</li>
-      </ul>
-    </section>
-
-    <footer class="footer">
-      <span>© <span id="year"></span> Your Name</span>
-    </footer>
+    <div class="toast mono" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
   </main>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // year
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // copy discord
+    const DISCORD = "kiteh.";
+    const toast = document.getElementById("toast");
+    const showToast = (msg) => {
+      toast.textContent = msg;
+      toast.classList.add("show");
+      window.clearTimeout(showToast._t);
+      showToast._t = window.setTimeout(() => toast.classList.remove("show"), 1600);
+    };
+
+    document.getElementById("copyDiscord").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(DISCORD);
+        showToast("Copied: " + DISCORD);
+      } catch (e) {
+        // fallback
+        const t = document.createElement("textarea");
+        t.value = DISCORD;
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand("copy");
+        document.body.removeChild(t);
+        showToast("Copied: " + DISCORD);
+      }
+    });
   </script>
 </body>
 </html>
