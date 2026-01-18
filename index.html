@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Links</title>
+  <meta name="description" content="A quick intro + links." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="card">
+    <header class="top">
+      <!-- Upload an image named avatar.jpg (or change the src) -->
+      <img class="avatar" src="avatar.jpg" alt="Your profile photo" />
+      <div>
+        <h1>Your Name</h1>
+        <p class="tagline">Short bio. What you do. What you’re into.</p>
+      </div>
+    </header>
+
+    <section class="buttons">
+      <a class="btn" href="https://discord.com/users/YOURID" target="_blank" rel="noreferrer">Discord</a>
+      <a class="btn" href="https://www.youtube.com/@yourhandle" target="_blank" rel="noreferrer">YouTube</a>
+      <a class="btn" href="https://twitch.tv/yourhandle" target="_blank" rel="noreferrer">Twitch</a>
+      <a class="btn" href="https://github.com/YOURUSERNAME" target="_blank" rel="noreferrer">GitHub</a>
+    </section>
+
+    <section class="section">
+      <h2>About</h2>
+      <p>
+        Write 2–4 lines about yourself. What you’re building, streaming, learning, etc.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Stuff I’m doing</h2>
+      <ul class="list">
+        <li><strong>Project/Server:</strong> what it is + why it’s cool</li>
+        <li><strong>Goal:</strong> what you’re aiming for</li>
+        <li><strong>Contact:</strong> best way to reach you</li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <span>© <span id="year"></span> Your Name</span>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
